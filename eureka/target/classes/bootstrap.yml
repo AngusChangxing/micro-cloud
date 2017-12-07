@@ -1,0 +1,22 @@
+server:
+  port: 8761
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+
+eurekaname: eureka
+eurekapro: pro
+
+spring:
+  application:
+    name: ${eurekaname}
+  cloud:
+    config:
+      name: ${eurekaname}
+      profile: ${eurekapro}
+      uri: http://localhost:8081/
